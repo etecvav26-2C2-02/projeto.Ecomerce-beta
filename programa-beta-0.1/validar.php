@@ -23,7 +23,7 @@ if ($user && $senha_protegida === $user['senha']) {
     $_SESSION['id'] = $user['idusuario'];
     $_SESSION['usuario'] = $user['usuario'];
 
-    header("Location: dashboard.php");
+    header("Location: index.php");
     exit;
 
 } else {

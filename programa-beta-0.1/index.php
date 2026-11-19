@@ -10,15 +10,6 @@ if (!isset($_SESSION['usuario'])) {
 require_once 'idioma.php';
 require_once 'config/conexao.php';
 
-$stmt = $pdo->prepare(
-    "SELECT produtos.*, categorias.nome AS categoria_nome
-     FROM produtos
-     LEFT JOIN categorias ON produtos.categoria_id = categorias.id"
-);
-$stmt->execute();
-
-$produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 require_once 'includes/header.php'; ?>
 
 <section class="container">

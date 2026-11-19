@@ -28,7 +28,7 @@ $params = $_GET;
     </div>
 
     <nav>
-        <a href="index.php"><?= $traducao['undefined'] ?></a>
+        <a href="index.php"><?= $traducao['index'] ?></a>
         <a href="cadastro.php"></a>
     </nav>
 </header>
