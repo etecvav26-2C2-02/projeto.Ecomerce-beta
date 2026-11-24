@@ -1,50 +1,25 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-session_start();
+    <p><?php echo 'bem vindo'; ?></p>
+<div class="btn">
+    <a href="login.php" class="btn">
+        <?= 'LOGIN' ?>
+    </a>
+    <br>
+</div>
+<div>
+    <a href="sobre.php">
+        <?= 'SOBRE' ?>
+    </a>
+</div>
 
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-    exit;
-}
-
-require_once 'idioma.php';
-require_once 'config/conexao.php';
-
-require_once 'includes/header.php'; ?>
-
-<section class="container">
-    <a class="btn" href="dashboard.php"><?= $traducao['voltar'] ?></a>
-    <h2><?= $traducao['lista_produtos'] ?></h2>
-
-    <div class="cards">
-
-        <?php foreach($produtos as $produto): ?>
-
-            <div class="card">
-
-                <h3><?= ($produto['nome']) ?></h3>
-
-                <p><strong><?= $traducao['remedio'] ?></strong> <?= ($produto['receita']) ?></p>
-
-                <p><strong><?= $traducao['descricao'] ?></strong> <?= $produto['descricao'] ?></p>
-
-                <p><strong><?= $traducao['categoria'] ?>:</strong> <?= htmlspecialchars($produto['categoria_nome'] ?? $traducao['sem_categoria']) ?></p>
-
-                <div class="acoes">
-                    <a class="btn editar" href="editar.php?id=<?= $produto['id'] ?>"><?= $traducao['editar'] ?></a>
-
-                    <a class="btn excluir"
-                       href="excluir.php?id=<?= $produto['id'] ?>"
-                       onclick="return confirm('<?= $traducao['confirmar_exclusao'] ?>')">
-                        <?= $traducao['excluir'] ?>
-                    </a>
-                </div>
-
-            </div>
-
-        <?php endforeach; ?>
-
-    </div>
-</section>
-
-<?php require_once 'includes/footer.php'; ?>
+</body>
+</html>
